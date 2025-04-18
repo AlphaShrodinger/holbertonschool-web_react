@@ -20,7 +20,7 @@ const printTeacher: printTeacherFunction = function (
     lastName: string
 ): string {
     return `${firstName[0]}. ${lastName}`;
-}
+};
 
 interface StudentConstructor {
     new(firstName: string, lastName: string): StudentClassInterface;
@@ -31,7 +31,8 @@ interface StudentClassInterface {
     displayName(): string;
 }
 
-const StudentClass: StudentConstructor = class StudentClass implements StudentClassInterface {
+const StudentClass: StudentConstructor = class StudentClass
+    implements StudentClassInterface {
     firstName: string;
     lastName: string;
 
@@ -41,18 +42,15 @@ const StudentClass: StudentConstructor = class StudentClass implements StudentCl
     }
 
     workOnHomework() {
-        return 'Currently working';
+        return "Currently working";
     }
 
     displayName() {
         return `${this.firstName}`;
     }
-}
+};
 
-export {
-    printTeacher,
-    StudentClass
-}
+export { printTeacher, StudentClass };
 
-const obj: StudentClassInterface = new StudentClass('Jordan', 'Peterson');
+const obj: StudentClassInterface = new StudentClass("Jordan", "Peterson");
 console.log(obj);

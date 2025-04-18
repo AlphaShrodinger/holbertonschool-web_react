@@ -1,43 +1,52 @@
 interface Student {
-    firstName: string,
-    lastName: string,
-    age: number,
-    location: string
+    firstName: string;
+    lastName: string;
+    age: number;
+    location: string;
 }
 
-const student1: Student = {
-    firstName: 'Pedro',
-    lastName: 'Picapiedra',
-    age: 45,
-    location: 'Pangea'
-}
+const studentOne: Student = {
+    firstName: "James",
+    lastName: "Joyce",
+    age: 90,
+    location: "Europe",
+};
 
-const student2: Student = {
-    firstName: 'Tito',
-    lastName: 'Rivera',
-    age: 23,
-    location: 'Canada'
-}
+const studentTwo: Student = {
+    firstName: "Jordan",
+    lastName: "Peterson",
+    age: 57,
+    location: "Canada",
+};
 
-const studentsList: Array<Student> = [student1, student2]
+const studentsList: Array<Student> = [studentOne, studentTwo];
+const labels: string[] = ["firstName", "location"];
 
-const table: HTMLTableElement = document.createElement('table');
+const table: HTMLTableElement = document.createElement("table");
+const tbody: HTMLTableSectionElement = document.createElement("tbody");
+const thead: HTMLTableSectionElement = document.createElement("thead");
 
 document.body.appendChild(table);
-
-const thead: HTMLTableSectionElement = document.createElement('thead');
-thead.innerHTML = '<tr><th>firstName</th><th>location</th></tr>';
 table.appendChild(thead);
-const tbody: HTMLTableSectionElement = document.createElement('tbody');
 table.appendChild(tbody);
-for (let i: number = 0; i < studentsList.length; i++) {
-    const row: HTMLTableRowElement = document.createElement('tr');
-    const th1: HTMLTableCellElement = document.createElement('th');
-    const th2: HTMLTableCellElement = document.createElement('th');
-    th1.innerHTML = studentsList[i].firstName;
-    th2.innerHTML = studentsList[i].location;
-    row.appendChild(th1);
-    row.appendChild(th2);
 
-    tbody.appendChild(row);
+for (let i: number = 0; i < labels.length; i++) {
+    const th: HTMLTableCellElement = document.createElement("th");
+    th.appendChild(document.createTextNode(`${labels[i]}`));
+    thead.appendChild(th);
+}
+
+for (let i: number = 0; i < studentsList.length; i++) {
+    const tr: HTMLTableRowElement = document.createElement("tr");
+    tbody.appendChild(tr);
+    const values: string[] = [
+        studentsList[i].firstName,
+        studentsList[i].location,
+    ];
+
+    for (let j: number = 0; j < values.length; j++) {
+        const td: HTMLTableCellElement = document.createElement("td");
+        td.appendChild(document.createTextNode(`${values[j]}`));
+        tr.appendChild(td);
+    }
 }

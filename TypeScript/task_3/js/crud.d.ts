@@ -1,5 +1,4 @@
 import { RowElement, RowID } from './interface';
-
 type insertRow = (row: RowElement) => number;
 
 type deleteRow = (rowId: RowID) => void;

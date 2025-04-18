@@ -1,4 +1,3 @@
-
 namespace Subjects {
     export class Subject {
         teacher: TeacherInterface;

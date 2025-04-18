@@ -1,4 +1,4 @@
-type RowID = number;
+type RowID = number
 
 interface RowElement {
     firstName: string;
@@ -6,7 +6,4 @@ interface RowElement {
     age?: number;
 }
 
-export {
-    RowID,
-    RowElement,
-}
+export { RowID, RowElement };
